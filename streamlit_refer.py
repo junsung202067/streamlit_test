@@ -142,7 +142,7 @@ def get_vectorstore(text_chunks): # 텍스트 청크를 벡터스토어로 변�
     return vectordb
 
 def get_conversation_chain(vetorestore,openai_api_key): # 대화 체인 생성
-    llm = ChatOpenAI(openai_api_key=openai_api_key, model_name = 'gpt-5-nano',temperature=0)
+    llm = ChatOpenAI(openai_api_key=openai_api_key, model_name = 'gpt-4o',temperature=0)
     conversation_chain = ConversationalRetrievalChain.from_llm(  
             llm=llm, 
             chain_type="stuff", 

@@ -9,3 +9,7 @@ openai
 pypdf
 loguru
 docx2txt
+streamlit
+langchain-community
+langchain-openai
+python-pptx
