@@ -9,7 +9,7 @@ from langchain.memory import ConversationBufferMemory
 
 # LangChain OpenAI 통합 모듈
 from langchain_openai import ChatOpenAI
-from langchain_openai import get_openai_callback
+from langchain_community.callbacks import get_openai_callback
 
 # LangChain 커뮤니티 통합 모듈
 from langchain_community.document_loaders import PyPDFLoader
