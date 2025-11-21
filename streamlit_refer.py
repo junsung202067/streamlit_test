@@ -77,7 +77,7 @@ def main():
             chain = st.session_state.conversation
 
             with st.spinner("Thinking..."): # 로딩창
-                result = chain({"question": query}) #LLM 체인에 질문 전달 후 받은 결과
+                result = chain.invoke({"question": query}) #LLM 체인에 질문 전달 후 받은 결과
                 with get_openai_callback() as cb:
                     st.session_state.chat_history = result['chat_history'] # 대화 기록 저장
                 response = result['answer'] # LLM이 생성한 답변
@@ -146,7 +146,7 @@ def get_conversation_chain(vetorestore,openai_api_key): # 대화 체인 생성
     conversation_chain = ConversationalRetrievalChain.from_llm(  
             llm=llm, 
             chain_type="stuff", 
-            retriever=vetorestore.as_retriever(search_type = 'mmr', vervose = True), 
+            retriever=vetorestore.as_retriever(search_type = 'mmr'), 
             memory=ConversationBufferMemory(memory_key='chat_history', return_messages=True, output_key='answer'), # 대화 메모리 설정
             get_chat_history=lambda h: h,
             return_source_documents=True,
